@@ -53,15 +53,11 @@ public class TreeTraversal {
         return bNode;
     }
 
-    private static void inOrderTraversal2(BinaryNode binaryNode) {
-        if (null != binaryNode.getLeft()) {
-            inOrderTraversal2(binaryNode.getLeft());
-        } else {
-            System.out.println(binaryNode.getData());
-        }
-        if (null != binaryNode.getRight()) {
-            System.out.println(binaryNode.getData());
-            inOrderTraversal2(binaryNode.getRight());
+    private static void inOrderTraversal2(BinaryNode bNode) {
+        if (bNode != null) {
+            inOrderTraversal2(bNode.getLeft());
+            System.out.println(bNode.getData());
+            inOrderTraversal2(bNode.getRight());
         }
     }
 
@@ -76,13 +72,11 @@ public class TreeTraversal {
         return bNode;
     }
 
-    private static void preOrderTraversal2(BinaryNode binaryNode){
-        System.out.println(binaryNode.getData());
-        if(null != binaryNode.getLeft()){
-            preOrderTraversal2(binaryNode.getLeft());
-        }
-        if(null != binaryNode.getRight()){
-            preOrderTraversal2(binaryNode.getRight());
+    private static void preOrderTraversal2(BinaryNode bNode) {
+        if (bNode != null) {
+            System.out.println(bNode.getData());
+            preOrderTraversal2(bNode.getLeft());
+            preOrderTraversal2(bNode.getRight());
         }
     }
 
@@ -103,16 +97,10 @@ public class TreeTraversal {
     }
 
     private static void postOrderTraversal2(BinaryNode bNode) {
-        if(null == bNode.getLeft() && null == bNode.getRight()){
-            System.out.println(bNode.getData());
-        }else {
-            if (null != bNode.getLeft()) {
+        if (bNode != null) {
                 postOrderTraversal2(bNode.getLeft());
-            }
-            if (null != bNode.getRight()) {
                 postOrderTraversal2(bNode.getRight());
-            }
-            System.out.println(bNode.getData());
+                System.out.println(bNode.getData());
         }
     }
 }
